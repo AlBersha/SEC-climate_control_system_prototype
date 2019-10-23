@@ -123,11 +123,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Authorizer.cpp" />
     <ClCompile Include="ClimateControlSystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SimpleAccountsHolder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Authorizer.h" />
     <ClInclude Include="ClimateControlSystem.h" />
     <ClInclude Include="SimpleAccountsHolder.h" />
   </ItemGroup>

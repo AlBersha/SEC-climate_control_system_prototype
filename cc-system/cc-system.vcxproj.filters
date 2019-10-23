@@ -24,12 +24,18 @@
     <ClCompile Include="SimpleAccountsHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Authorizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClimateControlSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SimpleAccountsHolder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Authorizer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

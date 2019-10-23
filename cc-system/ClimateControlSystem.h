@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include <string>
 #include "Settings.h"
 #include "Scheduler.h"
@@ -22,4 +22,5 @@ private:
 	Authorizer authorizer;
 	Interface* currentUserInterface;
 };
+*/
 
