@@ -125,12 +125,16 @@
   <ItemGroup>
     <ClCompile Include="Authorizer.cpp" />
     <ClCompile Include="ClimateControlSystem.cpp" />
+    <ClCompile Include="ClimatMode.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Settings.cpp" />
     <ClCompile Include="SimpleAccountsHolder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Authorizer.h" />
     <ClInclude Include="ClimateControlSystem.h" />
+    <ClInclude Include="ClimateMode.h" />
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="SimpleAccountsHolder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
