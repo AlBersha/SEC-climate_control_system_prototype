@@ -127,6 +127,7 @@
     <ClCompile Include="ClimateControlSystem.cpp" />
     <ClCompile Include="ClimatMode.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="SimpleAccountsHolder.cpp" />
   </ItemGroup>
@@ -134,6 +135,8 @@
     <ClInclude Include="Authorizer.h" />
     <ClInclude Include="ClimateControlSystem.h" />
     <ClInclude Include="ClimateMode.h" />
+    <ClInclude Include="Interface.h" />
+    <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="SimpleAccountsHolder.h" />
   </ItemGroup>
