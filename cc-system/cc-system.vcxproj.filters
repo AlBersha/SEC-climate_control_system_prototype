@@ -18,18 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\chaka\Desktop\Authorizer.cpp">
+    <ClCompile Include="ClimateControlSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\chaka\Desktop\SimpleAccountsHolder.cpp">
+    <ClCompile Include="SimpleAccountsHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\chaka\Desktop\Authorizer.h">
+    <ClInclude Include="ClimateControlSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\chaka\Desktop\SimpleAccountsHolder.h">
+    <ClInclude Include="SimpleAccountsHolder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

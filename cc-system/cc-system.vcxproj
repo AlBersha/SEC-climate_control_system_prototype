@@ -123,13 +123,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\chaka\Desktop\Authorizer.cpp" />
-    <ClCompile Include="C:\Users\chaka\Desktop\SimpleAccountsHolder.cpp" />
+    <ClCompile Include="ClimateControlSystem.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SimpleAccountsHolder.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\chaka\Desktop\Authorizer.h" />
-    <ClInclude Include="C:\Users\chaka\Desktop\SimpleAccountsHolder.h" />
+    <ClInclude Include="ClimateControlSystem.h" />
+    <ClInclude Include="SimpleAccountsHolder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
