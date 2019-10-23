@@ -16,11 +16,11 @@ public:
 	void StopSystem(); // calls saving processes 
 	void ExitAccount(); // for changing account 
 private:
-	bool isUserAuthorized; // User acnt access system without authorizing 
-	Settings settings;
-	Scheduler scheduler;
-	Authorizer authorizer;
-	Interface* currentUserInterface;
+	bool isUserAuthorized = false; // User acnt access system without authorizing 
+	//Settings* settings;
+	//Scheduler* scheduler;
+	Authorizer* authorizer;
+	//Interface* currentUserInterface = nullptr;
 };
 
 
