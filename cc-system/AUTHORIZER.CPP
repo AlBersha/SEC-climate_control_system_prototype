@@ -19,15 +19,15 @@ AccountType Authorizer::TryAuthorize() {
 	AccountType TypeOfAccount = accountsHolder.CheckRecord(login, password);
 	if (TypeOfAccount == 0) {
 		system("cls");
-		cout << " PLEASE TRY AGAIN, UNCORRECT LOGIN OR " << endl;
-		TryAuthorize();
+		cout << " PLEASE TRY AGAIN, UNCORRECT LOGIN OR PASSWORD " << endl;
+		return TypeOfAccount;
 	}
-	else if(TypeOfAccount == 1){
+	if(TypeOfAccount == 1){
 		system("cls");
 		cout << " You is authorized as a worker" << endl;
 		return TypeOfAccount;
 	}
-	else {
+	if(TypeOfAccount == 2){
 		system("cls");
 		cout << " You is authorized as a director" << endl;
 		return TypeOfAccount;

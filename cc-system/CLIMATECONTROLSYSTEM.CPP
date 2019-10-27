@@ -17,12 +17,16 @@ ClimateControlSystem::~ClimateControlSystem()
 void ClimateControlSystem::Authorize() {
 	TypeOfAccount = authorizer->TryAuthorize();
 
+	if (TypeOfAccount == 0) {
+		TypeOfAccount = authorizer->TryAuthorize();
+	}
 	if (TypeOfAccount == 1) {
 		currentUserInterface = new WorkerInterface();
 	}
-	else {
+	if (TypeOfAccount == 2) {
 		currentUserInterface = new DirectorInterface();
 	}
+
 }
 
 void ClimateControlSystem::ShowMenu() {
