@@ -22,7 +22,7 @@ public:
 
 class SimpleAccountsHolder {
 public:
-	SimpleAccountsHolder(std::string dataBasePath = "AccountsHolder/database.ah");
+	SimpleAccountsHolder(std::string dataBasePath = "Database.ah");
 	~SimpleAccountsHolder();
 	AccountType CheckRecord(std::string login, std::string password);
 	bool CreateRecord(std::string login, std::string password, AccountType userType);
