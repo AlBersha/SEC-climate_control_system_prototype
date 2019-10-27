@@ -97,6 +97,7 @@ void Settings::ChangeCurrentSettings()
 {
 	int n = 1;
 	int num;
+	bool hasChanges = false;
 	while (n == 1) {
 		cout << "Choose parameter, you would like to change:\n";
 		cout << "1. Temperature\n2. Humidity\n3. Flavor\n";
@@ -114,6 +115,7 @@ void Settings::ChangeCurrentSettings()
 							currentClimateMode.SetTemperature(temp);
 							checker = false;
 							cout << "Temperature value set successfully.\n";
+							hasChanges = true;
 						}
 						else {
 							cout << "You have entered an inappropriate value.\nPlease try one more time\n";
@@ -132,6 +134,7 @@ void Settings::ChangeCurrentSettings()
 						currentClimateMode.SetHumidity(hum);
 						checker = false;
 						cout << "Humidity value set successfully.\n";
+						hasChanges = true;
 					}
 					else {
 						cout << "You have entered an inappropriate value.\nPlease try one more time\n";
@@ -148,6 +151,7 @@ void Settings::ChangeCurrentSettings()
 				//display list of Flavors
 				cout << "Input num of flavor, you want to set: ";
 				cin >> num;
+				hasChanges = true;
 				//currentClimateMode.SetFlavor(Flavors[num - 1]);
 				break;
 			}
@@ -160,6 +164,9 @@ void Settings::ChangeCurrentSettings()
 		cout << "To continue changing setting, input 1\n";
 		cout << "Stop changing settings, input 0\n";
 		cin >> n;
+	}
+	if (hasChanges) {
+		currentClimateMode.SetName("Custom");
 	}
 }
 

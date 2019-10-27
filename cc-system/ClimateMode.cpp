@@ -6,12 +6,20 @@ ClimateMode::ClimateMode(string modeName, double temp, double hum, string flav) 
 	this->humidity = hum;
 	this->flavor = flav;
 }
+
 ClimateMode::ClimateMode() {
 
 }
+
 ClimateMode::~ClimateMode() {
 
 }
+
+void ClimateMode::SetName(string newName)
+{
+	name = newName;
+}
+
 void ClimateMode::SetTemperature(double newTemperature)
 {
 	temperature = newTemperature;

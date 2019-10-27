@@ -16,6 +16,7 @@ public:
 	ClimateMode();
 	~ClimateMode();
 
+	void SetName(string newName);
 	void SetTemperature(double newTemperature);
 	void SetHumidity(double newHumidity);
 	//void SetFlavor(Flavors newFlavor);
