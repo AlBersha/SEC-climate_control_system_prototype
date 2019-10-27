@@ -219,7 +219,6 @@ void Settings::ApplyClimateMode(){
 			cout << endl << " You entered an incorrect value, try again!" << endl;
 		}
 	}
-	
 }
 
 

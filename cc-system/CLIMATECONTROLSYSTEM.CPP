@@ -12,6 +12,7 @@ ClimateControlSystem::~ClimateControlSystem()
 {
 	delete authorizer;
 	delete settings;
+	delete scheduler;
 }
 
 void ClimateControlSystem::Authorize() {
@@ -26,7 +27,6 @@ void ClimateControlSystem::Authorize() {
 	if (TypeOfAccount == 2) {
 		currentUserInterface = new DirectorInterface();
 	}
-
 }
 
 void ClimateControlSystem::ShowMenu() {
@@ -82,6 +82,12 @@ void ClimateControlSystem::ShowMenu() {
 			ShowMenu();
 			break;
 		}
+		case 9: {
+			system("cls");
+			CreateAccount();
+			ShowMenu();
+			break;
+		}
 		default: {
 			break;
 		}
@@ -93,5 +99,23 @@ void ClimateControlSystem::StopSystem() {
 }
 
 void ClimateControlSystem::ExitAccount() {
-	StopSystem();
+	cout << " Exit successful" << endl;
+	Authorize();
+}
+
+void ClimateControlSystem::CreateAccount() {
+	bool flag = true;
+	while (flag) {
+		string login;
+		string password;
+		AccountType type = Worker;
+		cout << " Enter login: ";
+		cin >> login;
+		cout << " Enter password: ";
+		cin >> password;
+		if (authorizer->CreateAccount(login, password, type)) {
+			flag = false;
+			cout << " Create accout successful" << endl;
+		}
+	}
 }

@@ -33,3 +33,13 @@ AccountType Authorizer::TryAuthorize() {
 		return TypeOfAccount;
 	}
 }
+
+bool Authorizer::CreateAccount(string login, string password, AccountType type) {
+	AccountType check = accountsHolder.CheckRecord(login, password);
+	if (check == Unrecognized){
+		return accountsHolder.CreateRecord(login, password,type);
+	}
+	else {
+		return false;
+	}
+}

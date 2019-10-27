@@ -11,7 +11,7 @@ public:
 	ClimateControlSystem(); //should load all sub-modules and other 
 	~ClimateControlSystem();
 	void Authorize(); // assigns interface of account 
-	bool CreateAccount(std::string login, std::string password, AccountType acountType);
+	void CreateAccount();
 	void ShowMenu(); // calls Interface's menu and reacts to user input by calling other methods in sub-modules 
 	void StopSystem(); // calls saving processes 
 	void ExitAccount(); // for changing account 

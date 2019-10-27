@@ -48,7 +48,9 @@ int DirectorInterface::DisplayMenu() {
 	cout << " 4) Exit " << endl;
 	cout << " 5) See Timing " << endl;
 	cout << " 6) Create New Timing " << endl;
-	cout << " 7) Create Climate Mode " << endl;
+	cout << " 7) Remove Timing " << endl;
+	cout << " 8) Create Climate Mode " << endl;
+	cout << " 9) Create New Account " << endl;
 	cout << " Select a menu item: "; 
 
 	int menuItem;
@@ -64,7 +66,7 @@ int DirectorInterface::DisplayMenu() {
 }
 
 bool DirectorInterface::Validation(int menuItem) {
-	if (menuItem > 8|| menuItem < 0) {
+	if (menuItem > 9|| menuItem < 0) {
 		system("cls");
 		cout << " Uncorrect menu item, try again" << endl;
 		return false;
