@@ -1,6 +1,12 @@
 #include "ClimateMode.h"
 using namespace std;
 
+ClimateMode::ClimateMode() {
+
+}
+ClimateMode::~ClimateMode() {
+
+}
 void ClimateMode::SetTemperature(double newTemperature)
 {
 	temperature = newTemperature;

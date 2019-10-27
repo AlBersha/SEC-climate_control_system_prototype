@@ -23,10 +23,12 @@ AccountType Authorizer::TryAuthorize() {
 		TryAuthorize();
 	}
 	else if(TypeOfAccount == 1){
+		system("cls");
 		cout << " You is authorized as a worker" << endl;
 		return TypeOfAccount;
 	}
 	else {
+		system("cls");
 		cout << " You is authorized as a director" << endl;
 		return TypeOfAccount;
 	}

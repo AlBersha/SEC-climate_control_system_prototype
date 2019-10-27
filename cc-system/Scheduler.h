@@ -10,9 +10,8 @@ public:
 	~Scheduler();
 
 	void DisplayTasks();
-	void AddTask(std::string climateModeName, time_t time);
-	void RemoveTask(std::string climateModename);
-	void RemoveTask(time_t time);
+	void AddTask();
+	void RemoveTask();
 private:
 	void PerformTask(time_t time);
 	std::map<std::string, time_t > tasks;

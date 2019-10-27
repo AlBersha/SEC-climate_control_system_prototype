@@ -125,7 +125,8 @@
   <ItemGroup>
     <ClCompile Include="Authorizer.cpp" />
     <ClCompile Include="ClimateControlSystem.cpp" />
-    <ClCompile Include="ClimatMode.cpp" />
+    <ClCompile Include="ClimateMode.cpp" />
+    <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="Settings.cpp" />

@@ -5,7 +5,7 @@ using namespace std;
 class ClimateMode
 {
 public:
-	ClimateMode(std::string name);
+	ClimateMode();
 	~ClimateMode();
 
 	void SetTemperature(double newTemperature);

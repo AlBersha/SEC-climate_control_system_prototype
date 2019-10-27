@@ -6,6 +6,14 @@
 #include "ClimateMode.h"
 using namespace std;
 
+Settings::Settings() {
+
+}
+
+Settings::~Settings() {
+
+}
+
 bool CheckTemperature(int temp) {
 	if (temp > 15 && temp < 35) {
 		return true;
@@ -100,9 +108,9 @@ void Settings::ChangeCurrentSettings()
 		cin >> n;
 	}
 }
-/*
-void Settings::CreateClimateMode()
-{
+
+void Settings::CreateClimateMode(){
+	/*
 	string name;
 	double param;
 
@@ -128,11 +136,11 @@ void Settings::CreateClimateMode()
 	if (answer == "Y" || answer == "y") {
 		currentClimatMode = newClimatMode;
 	}
+	*/
 }
 
-void Settings::ApplyClimateMode()
-{
-	int num;
+void Settings::ApplyClimateMode(){
+	/*int num;
 	for (int i = 0; i < prefabClimateMode.size(); i++) {
 		string climatName = prefabClimateMode[i].GetName();
 		cout << i + 1 << ". " << name << endl;
@@ -141,9 +149,9 @@ void Settings::ApplyClimateMode()
 	cin << num;
 	currentClimatMode = prefabClimateMode[i];
 	cout << endl << "Climate mode successfully applied.\n";
+	*/
 }
 
-*/
 
 
 
