@@ -11,9 +11,10 @@ public:
 	void ChangeCurrentSettings();
 	void CreateClimateMode();
 	void ApplyClimateMode();
+	void Save();
 private:
 	ClimateMode currentClimateMode;
-	std::vector<string> Flavors;
+	//std::vector<string> Flavors;
 	std::vector<ClimateMode> prefabClimateMode;
 };
 

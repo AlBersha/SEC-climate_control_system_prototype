@@ -1,6 +1,11 @@
 #include "ClimateMode.h"
-using namespace std;
 
+ClimateMode::ClimateMode(string modeName, double temp, double hum, string flav) {
+	this->name = modeName;
+	this->temperature = temp;
+	this->humidity = hum;
+	this->flavor = flav;
+}
 ClimateMode::ClimateMode() {
 
 }
@@ -41,10 +46,4 @@ string ClimateMode::GetName()
 {
 	return name;
 }
-
-
-
-
-
-
 

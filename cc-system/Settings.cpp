@@ -3,15 +3,48 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <fstream>
 #include "ClimateMode.h"
+
 using namespace std;
 
 Settings::Settings() {
+	ifstream SavedSettings("ClimateMode.txt");
+	string input;
+	getline(SavedSettings, input);
 
+	while (input != "") {
+		int pos = input.find(" ");
+		string nameOfMode = input.substr(0, pos);
+		input = input.substr(pos + 1);
+		pos = input.find(" ");
+		double temperature = stod(input.substr(0, pos));
+		input = input.substr(pos + 1);
+		pos = input.find(" ");
+		double humidity = stod(input.substr(0, pos));
+		string flav = input.substr(pos + 1);
+		input = "";
+	
+		prefabClimateMode.push_back(ClimateMode(nameOfMode,temperature,humidity,flav));
+
+		getline(SavedSettings, input);
+	}
+
+	SavedSettings.close();
+	currentClimateMode = prefabClimateMode[0];
+}
+
+void Settings::Save() {
+	ofstream database;
+	for (int i = 0; i < prefabClimateMode.size(); i++) {
+		database << prefabClimateMode[i].GetName() << " " << prefabClimateMode[i].GetTemperature() << " " << prefabClimateMode[i].GetHumidity() << " " << prefabClimateMode[i].GetFlavor() << endl;
+	}
+
+	database.close();
 }
 
 Settings::~Settings() {
-
+	//Save();
 }
 
 bool CheckTemperature(int temp) {
@@ -32,11 +65,11 @@ bool CheckHumidity(int hum)
 void Settings::ShowCurrentSettings(){
 	cout << "For now the current settings are as follows:" << endl;
 	if (currentClimateMode.GetName() != "") {
-		cout << "Name of climat mode is " << currentClimateMode.GetName() << endl;
+		cout << "Name of climat mode:  " << currentClimateMode.GetName() << endl;
 	}
-	cout << "temperature: " << currentClimateMode.GetTemperature() << endl;
-	cout << "humidity: " << currentClimateMode.GetHumidity() << endl;
-	cout << "flavor: " << currentClimateMode.GetFlavor() << endl;
+	cout << "Temperature: " << currentClimateMode.GetTemperature() << endl;
+	cout << "Humidity: " << currentClimateMode.GetHumidity() << endl;
+	cout << "Flavor: " << currentClimateMode.GetFlavor() << endl;
 }
 
 void Settings::ChangeCurrentSettings()
@@ -94,7 +127,7 @@ void Settings::ChangeCurrentSettings()
 				//display list of Flavors
 				cout << "Input num of flavor, you want to set: ";
 				cin >> num;
-				currentClimateMode.SetFlavor(Flavors[num - 1]);
+				//currentClimateMode.SetFlavor(Flavors[num - 1]);
 				break;
 			}
 
@@ -110,33 +143,30 @@ void Settings::ChangeCurrentSettings()
 }
 
 void Settings::CreateClimateMode(){
-	/*
 	string name;
-	double param;
+	double temp;
+	double hum;
+	string flav;
 
 	cout << "Input the name of your climat mode: ";
-	getline(cin,name);
-	ClimateMode newClimatMode(name);
+	cin >> name;
 	cout << "\nInput the value of temperature for climat mode colled " << name << " : ";
-	cin >> param;
-	newClimatMode.SetTemperature(param);
+	cin >> temp;
 	cout << "\nInput the value of humidity: ";
-	cin >> param;
-	newClimatMode.SetHumidity(param);
+	cin >> hum;
 	cout << "\nInput num of flavor: " << endl;
 	//TODO
 	//decide where to keep vector<string> Flavors and how to fill in it(from file or manually)
 	//display list of Flavors
-	cin >> param;
-	newClimatMode.SetFlavor(Flovers[param - 1]);
-	prefabClimatMode.push_back(newClimatMode);
+	cin >> flav;
+	ClimateMode newClimateMode(name, temp, hum, flav);
+	prefabClimateMode.push_back(newClimateMode);
 	string answer;
 	cout << endl << "\nDo you want to apply new climat mode now? [Y/N]: ";
-	getline(answer);
+	getline(cin,answer);
 	if (answer == "Y" || answer == "y") {
-		currentClimatMode = newClimatMode;
+		currentClimateMode = newClimateMode;
 	}
-	*/
 }
 
 void Settings::ApplyClimateMode(){

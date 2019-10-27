@@ -2,9 +2,17 @@
 #include <string>
 using namespace std;
 
+enum Flavors {
+	None,
+	Rose,
+	Arctic,
+	Forest
+};
+
 class ClimateMode
 {
 public:
+	ClimateMode(string,double,double,string);
 	ClimateMode();
 	~ClimateMode();
 
@@ -16,19 +24,13 @@ public:
 	double GetHumidity();
 	//Flavors GetFlavor();
 	string GetFlavor();
-	std::string GetName();
+	string GetName();
 
 private:
-	string name;
-	double temperature;
-	double humidity;
-	//Flavors flavor;
+	string name = "";
+	double temperature = 0;
+	double humidity = 0;
+	//Flavors flavor = None;
 	string flavor;
 };
 
-//enum Flavors {
-//	None,
-//	Rose,
-//	Arctic,
-//	ConiferousForest
-//};

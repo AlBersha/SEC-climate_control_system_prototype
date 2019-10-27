@@ -54,8 +54,8 @@ void ClimateControlSystem::ShowMenu() {
 		}
 		case 4: {
 			system("cls");
-			cout << " Exit";
-			ShowMenu();
+			ExitAccount();
+			Authorize();
 			break;
 		}
 		case 5: {
@@ -86,4 +86,13 @@ void ClimateControlSystem::ShowMenu() {
 			break;
 		}
 	}
+}
+
+void ClimateControlSystem::StopSystem() {
+	settings->Save();
+}
+
+void ClimateControlSystem::ExitAccount() {
+	StopSystem();
+	
 }
