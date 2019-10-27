@@ -31,16 +31,37 @@ Settings::Settings() {
 	}
 
 	SavedSettings.close();
-	currentClimateMode = prefabClimateMode[0];
+
+	ifstream CurrentMode("CurrentClimateMode.txt");
+	getline(CurrentMode, input);
+
+	int pos = input.find(" ");
+	string nameOfMode = input.substr(0, pos);
+	input = input.substr(pos + 1);
+	pos = input.find(" ");
+	double temperature = stod(input.substr(0, pos));
+	input = input.substr(pos + 1);
+	pos = input.find(" ");
+	double humidity = stod(input.substr(0, pos));
+	string flav = input.substr(pos + 1);
+	input = "";
+
+	currentClimateMode = ClimateMode(nameOfMode, temperature, humidity, flav);
+	
+
+	CurrentMode.close();
 }
 
 void Settings::Save() {
-	ofstream database;
+	ofstream database("ClimateMode.txt");
 	for (int i = 0; i < prefabClimateMode.size(); i++) {
 		database << prefabClimateMode[i].GetName() << " " << prefabClimateMode[i].GetTemperature() << " " << prefabClimateMode[i].GetHumidity() << " " << prefabClimateMode[i].GetFlavor() << endl;
 	}
-
 	database.close();
+
+	ofstream CurrentMode("CurrentClimateMode.txt");
+	CurrentMode << currentClimateMode.GetName() << " " << currentClimateMode.GetTemperature() << " " << currentClimateMode.GetHumidity() << " " << currentClimateMode.GetFlavor() << endl;
+	CurrentMode.close();
 }
 
 Settings::~Settings() {
@@ -170,16 +191,28 @@ void Settings::CreateClimateMode(){
 }
 
 void Settings::ApplyClimateMode(){
-	/*int num;
+	int num;
 	for (int i = 0; i < prefabClimateMode.size(); i++) {
 		string climatName = prefabClimateMode[i].GetName();
-		cout << i + 1 << ". " << name << endl;
+		double temp = prefabClimateMode[i].GetTemperature();
+		double hum = prefabClimateMode[i].GetHumidity();
+		string flav = prefabClimateMode[i].GetFlavor();
+		cout << i + 1 << ". " << climatName << " (Temperature: " << temp << ", Humidity: " << hum << ", Flavor: " << flav << ")" << endl;
 	}
 	cout << "Input num of climat mode, you want to apply: ";
-	cin << num;
-	currentClimatMode = prefabClimateMode[i];
-	cout << endl << "Climate mode successfully applied.\n";
-	*/
+	bool flag = true;
+	while (flag) {
+		cin >> num;
+		if (num <= prefabClimateMode.size() && num > 0) {
+			currentClimateMode = prefabClimateMode[num - 1];
+			cout << " Climate mode successfully applied.\n";
+			flag = false;
+		}
+		else {
+			cout << endl << " You entered an incorrect value, try again!" << endl;
+		}
+	}
+	
 }
 
 

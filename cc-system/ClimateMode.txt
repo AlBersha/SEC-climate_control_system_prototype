@@ -1,0 +1,2 @@
+Standart1 20 60 Forest
+Standart2 25 48 Arctic
