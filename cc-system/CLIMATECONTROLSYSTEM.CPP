@@ -54,8 +54,8 @@ void ClimateControlSystem::ShowMenu() {
 		}
 		case 4: {
 			system("cls");
+			StopSystem();
 			ExitAccount();
-			//Authorize();
 			break;
 		}
 		case 5: {

@@ -2,12 +2,12 @@
 #include <string>
 using namespace std;
 
-enum Flavors {
-	None,
-	Rose,
-	Arctic,
-	Forest
-};
+//enum Flavors {
+//	None,
+//	Rose,
+//	Arctic,
+//	Forest
+//};
 
 class ClimateMode
 {

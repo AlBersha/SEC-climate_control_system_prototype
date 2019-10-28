@@ -50,6 +50,12 @@ Settings::Settings() {
 	
 
 	CurrentMode.close();
+
+	Flavors.push_back("None");
+	Flavors.push_back("Rose");
+	Flavors.push_back("Arctic");
+	Flavors.push_back("Forest");
+
 }
 
 void Settings::Save() {
@@ -100,7 +106,7 @@ void Settings::ChangeCurrentSettings()
 	bool hasChanges = false;
 	while (n == 1) {
 		cout << "Choose parameter, you would like to change:\n";
-		cout << "1. Temperature\n2. Humidity\n3. Flavor\n";
+		cout << "1. Temperature\n2. Humidity\n3. Flavors\n";
 		cout << "Input num of parameter, you want to change: ";
 		cin >> num;
 		switch (num)
@@ -144,17 +150,25 @@ void Settings::ChangeCurrentSettings()
 			}
 
 		case(3): {
+			bool flag = true;
+			while (flag) {
 				int num;
-				//TODO
-				//decide where to keep vector<string> Flavors 
-				//and how to fill in it(from file or manually)
-				//display list of Flavors
+				for (int i = 0; i < Flavors.size(); i++) {
+					cout << i + 1 << "." << Flavors[i] << endl;
+				}
 				cout << "Input num of flavor, you want to set: ";
 				cin >> num;
-				hasChanges = true;
-				//currentClimateMode.SetFlavor(Flavors[num - 1]);
-				break;
+				if (num > 0 && num < Flavors.size() + 1) {
+					hasChanges = true;
+					currentClimateMode.SetFlavor(Flavors[num - 1]);
+					flag = false;
+				}
+				else {
+					cout << " Incorrect value" << endl;
+				}
 			}
+			break;
+		}
 
 			default: {
 				cout << "You have entered wrong number.\nPlease try one more time or finish execution.";
@@ -174,24 +188,66 @@ void Settings::CreateClimateMode(){
 	string name;
 	double temp;
 	double hum;
-	string flav;
+	int flav;
 
 	cout << "Input the name of your climat mode: ";
 	cin >> name;
 	cout << "\nInput the value of temperature for climat mode colled " << name << " : ";
-	cin >> temp;
+	
+	bool checker = true;
+	while (checker) {
+		int tempValue;
+		cin >> tempValue;
+		if (CheckTemperature(tempValue)) {
+			temp = tempValue;
+			checker = false;
+			cout << "Temperature value set successfully.\n";
+		}
+		else {
+			cout << "You have entered an inappropriate value.\nPlease try one more time\n";
+		}
+	}
+
+
 	cout << "\nInput the value of humidity: ";
-	cin >> hum;
-	cout << "\nInput num of flavor: " << endl;
-	//TODO
-	//decide where to keep vector<string> Flavors and how to fill in it(from file or manually)
-	//display list of Flavors
-	cin >> flav;
-	ClimateMode newClimateMode(name, temp, hum, flav);
+	
+	checker = true;
+	while (checker) {
+		double tempHum;
+		cin >> tempHum;
+		if (CheckHumidity(tempHum)) {
+			hum = tempHum;
+			checker = false;
+			cout << "Humidity value set successfully.\n";
+		}
+		else {
+			cout << "You have entered an inappropriate value.\nPlease try one more time\n";
+		}
+	}
+
+
+	bool flag = true;
+	while (flag) {
+		int num;
+		for (int i = 0; i < Flavors.size(); i++) {
+			cout << i + 1 << "." << Flavors[i] << endl;
+		}
+		cout << "Input num of flavor, you want to set: ";
+		cin >> num;
+		if (num > 0 && num < Flavors.size() + 1) {
+			flav = num;
+			flag = false;
+		}
+		else {
+			cout << " Incorrect value" << endl;
+		}
+	}
+
+	ClimateMode newClimateMode(name, temp, hum, Flavors[flav-1]);
 	prefabClimateMode.push_back(newClimateMode);
 	string answer;
 	cout << endl << "\nDo you want to apply new climat mode now? [Y/N]: ";
-	getline(cin,answer);
+	cin >> answer;
 	if (answer == "Y" || answer == "y") {
 		currentClimateMode = newClimateMode;
 	}

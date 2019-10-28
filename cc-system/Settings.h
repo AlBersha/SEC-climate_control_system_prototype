@@ -14,7 +14,7 @@ public:
 	void Save();
 private:
 	ClimateMode currentClimateMode;
-	//std::vector<string> Flavors;
+	std::vector<string> Flavors;
 	std::vector<ClimateMode> prefabClimateMode;
 };
 
